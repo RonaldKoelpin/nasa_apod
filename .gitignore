@@ -1,0 +1,18 @@
+# created by virtualenv automatically
+# Python virtual environment
+.venv/
+
+# PyCharm
+.idea/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Test/coverage files
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS files
+.DS_Store
