@@ -1,0 +1,6 @@
+[Unit]
+Description=NASA APOD Wallpaper
+
+[Service]
+Type=oneshot
+ExecStart=/home/ronald-koelpin/projects/nasa_apod/.venv/bin/python /home/ronald-koelpin/projects/nasa_apod/nasa_apod.py

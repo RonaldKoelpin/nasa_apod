@@ -1,0 +1,9 @@
+[Unit]
+Description=Run NASA APOD Wallpaper daily
+
+[Timer]
+OnCalendar=*-*-* 13:46:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

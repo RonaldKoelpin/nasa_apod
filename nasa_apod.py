@@ -1,4 +1,44 @@
 #!/usr/bin/env python3
+#
+# Copyright (c) 2026 David Drake
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+#
+# nasa_apod.py
+# https://github.com/RonaldKoelpin/nasa_apod
+#
+# Written/Modified by Ronald Kölpin
+#
+# Tested on Ubuntu 24.04
+#
+#
+#
+# DEFAULTS
+# URL               - address of NASA API to download the APOD from.
+# APOD_FOLDER       - where you want you APOD to be downloaded
+# TIMEOUT_API       - max waiting time when requesting current APOD from NASA APOD API
+# TIMEOUT_IMAGE     - max waiting time to download actual image file from NASA APOD API
+# WALLPAPER_OPTION  -
+#       "none"      : no change. picture is taken as is.
+#       "wallaper"  : tile pattern. picture is repeated.
+#       "centered"  : picture is centered using its original size.
+#       "scaled"    : picture is scaled proportionally to screen resolution.
+#       "stretched" : picture is stretched to fit the entire screen.
+#       "zoom"      : picture is enlarged proportionally. excess areas are cut off
+#       "spanned"   : image is spread across multiple monitors.
+
+
 
 # ------------------------------------------------------------
 # Imports
@@ -19,14 +59,14 @@ URL = "https://science.nasa.gov/wp-json/wp/v2/apod-basic/?per_page=1"
 APOD_FOLDER = Path.home() / "Pictures" / "APOD"
 TIMEOUT_API = 10
 TIMEOUT_IMAGE = 30
-WALLPAPER_OPTION = "zoom"
+WALLPAPER_OPTION = "scaled"
 
 # ------------------------------------------------------------
 # Helper functions
 # ------------------------------------------------------------
 
-# get current APOD
 def get_apod(url, timeout):
+    # get current APOD
     try:
         response = requests.get(url, timeout=timeout)
         response.raise_for_status()
