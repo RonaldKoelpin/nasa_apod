@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Copyright (c) 2026 David Drake
+# Copyright (c) 2026 Ronald Kölpin
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,9 +22,8 @@
 #
 # Tested on Ubuntu 24.04
 #
+# OPTIONS
 #
-#
-# DEFAULTS
 # URL               - address of NASA API to download the APOD from.
 # APOD_FOLDER       - where you want you APOD to be downloaded
 # TIMEOUT_API       - max waiting time when requesting current APOD from NASA APOD API
@@ -37,8 +36,6 @@
 #       "stretched" : picture is stretched to fit the entire screen.
 #       "zoom"      : picture is enlarged proportionally. excess areas are cut off
 #       "spanned"   : image is spread across multiple monitors.
-
-
 
 # ------------------------------------------------------------
 # Imports
