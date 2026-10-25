@@ -11,8 +11,8 @@ About:
 
 NASA's Astronomy Picture of the Day provides a different image or photograph of our fascinating universe each day, 
 along with a brief explanation written by a professional astronomer.
-This script downloads the current NASA APOD (if it is an image) and sets it as your Ubuntu desktop wallpaper.
-There are already other scripts (https://github.com/randomdrake/nasa-apod-desktop) or GNOME extensions 
+This script downloads the most recent NASA APODs (if they are images) and sets the current APOD as your Ubuntu desktop 
+wallpaper. There are already other scripts (https://github.com/randomdrake/nasa-apod-desktop) or GNOME extensions 
 (https://extensions.gnome.org/extension/1202/nasa-apod/) out there doing the same thing but I wanted my own solution.
 
 https://science.nasa.gov/apod/
@@ -21,8 +21,8 @@ Created for and tested under Ubuntu 24.04.
 
 How It Works:
 =====
-1. Downloads the current APOD from NASA using their API https://science.nasa.gov/wp-json/wp/v2/apod-basic
-and saves it to a previously determined directory (creates the directory if necessary).
+1. Downloads the most recent APODs from NASA using their API https://science.nasa.gov/wp-json/wp/v2/apod-basic
+and saves them to a previously determined directory (creates the directory if necessary).
 2. Sets the image as your desktop wallpaper 
 
 
@@ -55,6 +55,8 @@ or simply "DOWNLOAD_PATH/nasa_apod.py" if you previously ran chmod +x.
 * nasa_apod.servic and nasa_apod.timer (from the config folder) create a system service (though user specific) that runs 
 the script daily at a specified time. Still, we are messing with system services here, so handle with care. Remember: 
 with great power comes great responsibility.
+* In the nasa_apod.service file change the ExecStart-line (line 6) to "ExecStart = python3 DOWNLOAD_PATH/nasa_apod.py"
+  (i.e. to point to your downloaded script and to execute it with your desired python version)
 * You can change preset time by changing the line OnCalendar=*-*-* 07:00:00 in the nasa_apod.timer file.
 * Copy the files nasa_apod.service and nasa_apod.timer files to ~/.config/systemmd/user
 * In your terminal run "systemctl --user daemon-reload" to reload your user services and 
